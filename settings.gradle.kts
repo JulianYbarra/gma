@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "GMA"
 include(":app")
+include(":testing")
