@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    kotlin("kapt")
+    alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
 
 }
@@ -17,7 +17,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.junka.core.testing.di.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -54,8 +54,14 @@ android {
 
 dependencies {
 
+    implementation(projects.core.presentation.designsystem)
+    implementation(projects.core.domain)
+    implementation(projects.core.data)
+
+
+    implementation(projects.feature.character.presentation)
+
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
 
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
@@ -65,13 +71,13 @@ dependencies {
     implementation(libs.androidx.material3)
 
     implementation(libs.coil.compose)
-    implementation(libs.converter.moshi)
-    implementation(libs.retrofit)
 
     implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
 
+    testImplementation(projects.core.testing)
     testImplementation(libs.junit)
+    androidTestImplementation(projects.core.testing)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))

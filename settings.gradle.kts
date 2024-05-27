@@ -1,12 +1,6 @@
 pluginManagement {
     repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
-        }
+        google()
         mavenCentral()
         gradlePluginPortal()
     }
@@ -19,5 +13,14 @@ dependencyResolutionManagement {
     }
 }
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 rootProject.name = "GMA"
 include(":app")
+include(":core:data")
+include(":core:domain")
+include(":core:presentation:designsystem")
+include(":core:presentation:ui")
+include(":core:testing")
+include(":feature:character")
+include(":feature:character:presentation")

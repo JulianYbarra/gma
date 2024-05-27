@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="character">Character</string>
+    <string name="error_couldnt_load_image">Couldn\'t load image.</string>
+    <string name="last_known_location">Last known location:</string>
+    <string name="try_again">Try again</string>
+</resources>
